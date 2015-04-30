@@ -1,6 +1,7 @@
 package com.pseudolab.gridview_sdcard;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -34,12 +35,20 @@ public class ImageAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ImageView imageView;
         if (convertView == null){
             imageView = new ImageView(_context);
-            imageView.setPadding(2,2,2,2);
+            imageView.setPadding(8,8,8,8);
             imageView.setLayoutParams(new GridView.LayoutParams(85,85));
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(_context,ImageItem.class);
+                    intent.putExtra("IMAGE_ID",mThumbsIds[position]);
+                    _context.startActivity(intent);
+                }
+            });
         }else{
             imageView = (ImageView)convertView;
         }
