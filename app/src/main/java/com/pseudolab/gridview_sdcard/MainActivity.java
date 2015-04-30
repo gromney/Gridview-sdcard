@@ -16,6 +16,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         gridView = (GridView)findViewById(R.id.gridView);
+        gridView.setAdapter(new ImageAdapter(this));
     }
 
 
