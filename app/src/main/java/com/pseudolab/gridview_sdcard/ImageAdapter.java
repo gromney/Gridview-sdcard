@@ -34,4 +34,12 @@ public class ImageAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         return null;
     }
+
+    private Integer[] mThumbsIds ={
+            R.drawable.sphynx_01,R.drawable.sphynx_02,R.drawable.sphynx_03,R.drawable.sphynx_04,
+            R.drawable.sphynx_05,R.drawable.sphynx_06,R.drawable.sphynx_07,R.drawable.sphynx_08,
+            R.drawable.sphynx_09,R.drawable.sphynx_10,R.drawable.sphynx_11,R.drawable.sphynx_12,
+            R.drawable.sphynx_13,R.drawable.sphynx_14,R.drawable.sphynx_15,R.drawable.sphynx_16
+
+    };
 }
