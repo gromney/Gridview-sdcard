@@ -3,7 +3,10 @@ package com.pseudolab.gridview_sdcard;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 
 /**
@@ -17,7 +20,7 @@ public class ImageAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return mThumbsIds.length;
     }
 
     @Override
@@ -32,7 +35,17 @@ public class ImageAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        ImageView imageView;
+        if (convertView == null){
+            imageView = new ImageView(_context);
+            imageView.setPadding(2,2,2,2);
+            imageView.setLayoutParams(new GridView.LayoutParams(85,85));
+        }else{
+            imageView = (ImageView)convertView;
+        }
+
+        imageView.setImageResource(mThumbsIds[position]);
+        return imageView;
     }
 
     private Integer[] mThumbsIds ={
