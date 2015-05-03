@@ -1,6 +1,7 @@
 package com.pseudolab.gridview_sdcard;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
@@ -17,9 +18,11 @@ public class ImageItem extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.image_item);
         Bundle bundle = getIntent().getExtras();
-        int imageId = bundle.getInt("IMAGE_ID");
-
+//        int imageId = bundle.getInt("IMAGE_ID");
+        String imageId = bundle.getString("IMAGE_ID");
+        Uri url = Uri.parse(imageId);
         ImageView imageView = (ImageView) findViewById(R.id.image);
-        imageView.setImageResource(imageId);
+//        imageView.setImageResource(imageId);
+        imageView.setImageURI(url);
     }
 }
